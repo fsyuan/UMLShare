@@ -1,0 +1,39 @@
+@startuml
+
+autonumber
+hide footbox
+title **SRM应用开发部署流程**
+
+actor "开发者" as user
+participant "代码仓库" as svn
+participant "业务测试系统" as ci1
+participant "压力安全测试系统" as ci2
+participant "运维发布系统" as sys #orange
+participant "应用" as server
+
+== 研发流程 ==
+
+user -> svn: 提交代码
+activate user
+deactivate user
+activate svn
+svn -> ci1: 单元测试
+deactivate svn
+activate ci1
+ci1 -> ci2: 推送
+deactivate ci1
+...
+== 上线/回滚流程 ==
+user -> ci2: 选择要上线的版本
+activate ci2
+activate user
+deactivate user
+ci2 -> sys: 发布
+deactivate ci2
+activate sys #orange
+sys -> server:启动
+activate server
+server --> sys: 退回
+deactivate sys
+
+@enduml
