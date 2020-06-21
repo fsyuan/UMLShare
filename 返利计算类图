@@ -1,0 +1,62 @@
+@startuml
+title 返利金额计算主逻辑类图
+
+interface Strategy {
++mathod(Rebate type,Obejct parameter)
+--
+return (money,money_rate)
+}
+
+class Config {
+Strategy Strategy
++mathod(Rebate type,Obejct parameter)
+return (money,money_rate)
+}
+
+class ITEM_CODE implements Strategy
+{
++mathod(Rebate type,Obejct parameter)
+---
+return (money,money_rate)
+}
+class ITEM_TYPE_STEP implements Strategy
+{
++mathod(Rebate type,Obejct parameter)
+---
+return (money,money_rate)
+}
+class ITEM_TYPE implements Strategy
+{
++mathod(Rebate type,Obejct parameter)
+---
+return (money,money_rate)
+}
+class ITEM_CODE_STEP implements Strategy
+{
++mathod(Rebate type,Obejct parameter)
+---
+return (money,money_rate)
+}
+class PAY_CASE implements Strategy{
++mathod(Rebate type,Obejct parameter)
+---
+return (money,money_rate)
+}
+class OTHER implements Strategy
+{
++mathod(Rebate type,Obejct parameter)
+---
+return (money,money_rate)
+}
+class Calculation {
+    +GET_REBATE_MONEY(Rebate type,Obejct parameter)
+    ---
+    return (money,money_rate)
+}
+
+
+Calculation --o Config
+Config --|>	Strategy
+
+
+@enduml
