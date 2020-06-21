@@ -1,0 +1,44 @@
+@startuml
+header SRM项目物理架构图
+footer SRM项目物理架构图
+title SRM项目物理架构图
+left to right direction
+actor 用户 as u1
+
+frame L1 {
+node login as l1
+}
+u1 --> l1 : 访问
+frame n1 {
+agent Nginx as n0
+}
+l1 --> n0
+frame n2 {
+component activeMq as am1
+node application2 as a2
+node application1 as a1
+}
+frame n3 {
+component mail as m1
+node application4 as a4
+node application3 as a3
+}
+
+frame n4 {
+database Oracle as o1
+}
+
+n0 --> a1
+n0 --> a2
+n0 --> a3
+n0 --> a4
+
+a1 --> o1
+a2 --> o1
+a3 --> o1
+a4 --> o1
+
+am1-->o1
+m1--> o1
+
+@enduml
