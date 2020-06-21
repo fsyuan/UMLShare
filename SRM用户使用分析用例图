@@ -1,0 +1,25 @@
+@startuml
+title **SRM用户使用分析**
+:Main Admin: as Admin
+(账户管理) as (am)
+(角色管理) as (rm)
+(功能管理) as (fm)
+(系统监控) as (sm)
+
+Admin --> (am)
+Admin --> (rm)
+Admin --> (fm)
+Admin --> (sm)
+
+:Sys User: as User
+(协议创建) as (brc)
+(协议确认) as (src)
+(金额确认) as (sac)
+(金额推送) as (bap)
+
+User --> (brc)
+User --> (src)
+User --> (sac)
+User --> (bap)
+
+@enduml
