@@ -1,0 +1,37 @@
+@startuml
+title 返利功能设计组件图
+frame SRM {
+component 月结对账单 as s1
+component 返利协议创建 as s2
+component 返利金额生成 as s4
+component 返利金额汇总 as s3
+}
+frame DB {
+component 数据库 as d1
+}
+
+frame SAP {
+component 月结对账单接口 as f1
+}
+
+frame FSSC {
+component 共享凭证接口 as fc1
+}
+
+
+
+frame 接口服务器 {
+component 中间处理过程 as m1
+}
+
+d1 -> SRM
+f1 --> m1
+m1 --> s1
+s4 -0)- s2
+s4 -0)- s1
+s4 --> s3
+s3 --> fc1
+
+
+
+@enduml
