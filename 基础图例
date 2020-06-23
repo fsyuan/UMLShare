@@ -1,0 +1,53 @@
+状态图图例
+@startuml
+[*] --> State1
+State1 --> [*]
+State1 -> State2
+State2 --> [*]
+
+@enduml
+
+
+包，类，对象图例
+@startuml
+
+'包
+package foo1 <<Node>> #DDDDDD{
+  class Class1
+}
+
+'接口
+interface Collection{
+add()
+remove()
+}
+
+'类定义
+class User {
+  # getAge()
+  -int age
+}
+
+@startuml
+Class11 <|. Class12
+Class13 <-> Class14
+Class15 .> Class16
+Class17 -|> Class18
+Class19 <--* Class20
+@enduml
+
+@enduml
+
+
+部署图，组件图
+@startuml
+node node1 as n1
+(账户管理) as am
+[First Component] as c1
+n1  -> am : 交互
+note right of c1
+  In java, <size:14>every</size> <u>class</u>
+  <b>extends</b>
+end note
+
+@enduml
